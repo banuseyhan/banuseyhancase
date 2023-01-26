@@ -1,3 +1,20 @@
+
+Öncelikle componentsleri oluşturdum yani apple , basket , tree…button u app.js in içinde oluşturdum çünkü reducer da oluşturduğum durum seçme olayını burada tanımlayıp handleclick eventini o durum seçici için tanımladım ve tanımladığım eventi buttona koydum.
+
+reducer oluşturup orada shake kavramını tanımladım yani ne zaman durup ne zaman reset olacağı kısmı tanımlayıp createSlice ile seçme durumunu yaptım .sonra bunu store kısmında import edip. redux kısmını tamamlamış oldum. tek buton detayı case isterlerinde vurgulandığı için reset butonu yapmadım ama reduce kısmına baskethasapple tanımlayarak yapabilirim.  reset kısmı olmadığı için de 10 saniye sonra tekrar shake butonuna basıldığında tekrara ağaç aktif hale geliyor.
+
+
+
+
+
+projeyi çalıştırmak için: 
+git clone https://github.com/banuseyhan/banuseyhancase
+
+cd banuseyhancase
+
+npm install 
+
+npm start
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
