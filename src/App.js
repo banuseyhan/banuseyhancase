@@ -6,13 +6,14 @@ import { shake, finishShake, reset } from "./reducers/AppReducer";
 import "./App.scss";
 
 function App(props) {
-  const finalized = useSelector((state) => state.shake.finalize);
+  const finalized = useSelector((state) => state.shake.finalize)
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    if (finalized) dispatch(reset());
+    if(finalized) dispatch(reset())
     dispatch(shake());
     setTimeout(() => dispatch(finishShake()), 3000);
+    clearTimeout(()=> dispatch(reset)(), 3000);
   };
 
   return (
@@ -21,14 +22,10 @@ function App(props) {
         <Tree />
         <Basket />
       </div>
-      <button
-        onClick={() => handleClick()}
-        style={{ alignSelf: "center", marginTop: "50px" }}
-      >
-        Shake tree
-      </button>
+      <button onClick={() => handleClick()} style={{ alignSelf: "center", marginTop: "50px" }}>Shake tree</button>
     </div>
   );
 }
+
 
 export default App;

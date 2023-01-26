@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AppleIcon from '../icons/apple-icon';
 import { useSelector, useDispatch } from 'react-redux';
-import { finalize } from '../reducers/AppReducer';
+import { finalize, reset } from '../reducers/AppReducer';
 import '../styles/apple.scss';
 
 const Apple = (props) => {
@@ -15,10 +15,13 @@ const Apple = (props) => {
         //farklı zamanda düşme için 
         setTimeout(() => {
             setStartToFall(true);
-            // sallanma bitince düşen elmanın 1 saniye sonra sepete gitmesi için
+           
             setTimeout(() => {
                 dispatch(finalize());
             }, 4750);
+            clearTimeout (()=> {
+                dispatch(reset());
+            }, 3000)
         }, props.delay);
     }
 

@@ -8,7 +8,6 @@ export const appShake = createSlice({
   },
   reducers: {
     shake: (state) => {
-      //oluşturduğumuz değişikliği algılaması ve store daki değişiklikler için createSlice kullanıldı
       state.shake = true;
     },
     finishShake: (state) => {
@@ -26,7 +25,6 @@ export const appShake = createSlice({
 
 export const { shake, finishShake, finalize, reset } = appShake.actions;
 
-//durum seçici 
 export const selectCount = (state) => state.shake.shake;
 
 export default appShake.reducer;
