@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Basket from "./components/Basket";
+import Tree from "./components/Tree";
+import { useSelector, useDispatch } from "react-redux";
+import { shake, finishShake, reset } from "./reducers/AppReducer";
+import "./App.scss";
 
-function App() {
+function App(props) {
+  const finalized = useSelector((state) => state.shake.finalize);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    if (finalized) dispatch(reset());
+    dispatch(shake());
+    setTimeout(() => dispatch(finishShake()), 3000);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="App">
+        <Tree />
+        <Basket />
+      </div>
+      <button
+        onClick={() => handleClick()}
+        style={{ alignSelf: "center", marginTop: "50px" }}
+      >
+        Shake tree
+      </button>
     </div>
   );
 }
